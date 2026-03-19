@@ -1,0 +1,8 @@
+Scan All Templates
+- nuclei -u https://uat-api-customer.kaotim.my -t ~/.local/nuclei-templates/ -severity critical,high,medium -o results.txt
+	
+Scan API and HTTP
+- nuclei -u https://uat-api-customer.kaotim.my -t ~/.local/nuclei-templates/http/ -severity critical,high,medium -o results.txt
+	
+Scan with Rate Limiting to Bypass WAF
+- nuclei -u https://uat-api-customer.kaotim.my -t ~/.local/nuclei-templates/http/ -severity critical,high,medium -rl 10 -o results.txt
