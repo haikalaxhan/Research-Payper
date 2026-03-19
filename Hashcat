@@ -1,0 +1,83 @@
+FIND THE HASHTYPE
+- hash-identifier
+- hashid 12315151rfewf2f13f1f1f1f313f
+
+NORMALIN NORMALIN
+- hashcat -a 0 -m hashalgorithm hashfile wordlist1 wordlist2 (fastest dictionary attack)
+- hashcat -a 0 -m 0 combination_md5 wordlist1 wordlist2
+- hashcat -a 1 -m hashalgorithm hashfile wordlist1 wordlist2 (okok fast brute force)
+- hashcat -a 1 -m 0 combination_md5 wordlist1 wordlist2
+
+MASK ATTACK
+- hashcat -a 3 -m hashalgorithm hashfile -1 01 'mask'
+- hashcat -a 3 -m 0 md5_mask_example_hash -1 01 'ILFREIGHT?l?l?l?l?l20?1?d'
+
+HYBRID MODE
+1. Hybrid Attack using Wordlists (word first) - Ex: password12345678
+- Hashcat -a 6 -m hashalgorithm hashfile wordlist 'mask'
+- hashcat -a 6 -m 100 htb4hash rockyou.txt '?d?s'
+2. Hybrid Attack using Wordlists (digits first)  - Ex: 12345678password
+- Hashcat -a 7 -m hashalgorithm hashfile -1 01 'mask' wordlist
+- hashcat -a 7 -m 0 hybrid_hash_prefix -1 01 '20?1?d' rockyou.txt
+
+CRACKING WITH RULES
+1. Rules Given
+a) c so0 si1 se3 ss5 sa@ $2 $0 $1 $9
+2. Create Rules File
+- echo 'c so0 si1 se3 ss5 sa@ $2 $0 $1 $9' > rule.txt
+3. Cracking Passwords using Wordlists and Rules
+- hashcat -a 0 -m 100 hash /opt/useful/seclists/Passwords/Leaked-Databases/rockyou.txt -r rule.txt
+4. Listing Default Rules
+- ls -l /usr/share/hashcat/rules/
+
+CRACK PASSWORD PROTECTED MICROSOFT OFFICE DOCUMENTS
+Mode        Target
+9400        MS Office 2007
+9500        MS Office 2010
+9600        MS Office 2013
+1. Extract hash from document
+- python office2john.py hashcat_Word_example.docx 
+2. Crack
+- hashcat -m 9600 office_hash /opt/useful/seclists/Passwords/Leaked-Databases/rockyou.txt
+
+CRACK PASSWORD PROTECTED ZIP FILES
+Mode        Target
+11600        7-Zip
+13600        WinZip
+17200        PKZIP (Compressed)
+17210        PKZIP (Uncompressed)
+17220        PKZIP (Compressed Multi-File)
+17225        PKZIP (Mixed Multi-File)
+17230        PKZIP (Compressed Multi-File Checksum-Only)
+23001        SecureZIP AES-128
+23002        SecureZIP AES-192
+23003        SecureZIP AES-256
+1. Extract hash from ZIP file
+- zip2john file.zip
+- 7z2john
+2. Crack
+- hashcat -a 0 -m 17200 pdf_hash_to_crack rockyou
+
+CRACK PASSWORD PROTECTED KEEPASS FILES
+Mode        Target
+13400        KeePass 1 AES / without keyfile
+13400        KeePass 2 AES / without keyfile
+13400        KeePass 1 Twofish / with keyfile
+13400        Keepass 2 AES / with keyfile
+1. Extract hash
+- python keepass2john.py Master.kdbx 
+2. Crack
+- hashcat -a 0 -m 13400 keepass_hash rockyou.txt
+
+CRACK PASSWORD PROTECTED PDF
+Mode        Target
+10400        PDF 1.1 - 1.3 (Acrobat 2 - 4)
+10410        PDF 1.1 - 1.3 (Acrobat 2 - 4), collider #1
+10420        PDF 1.1 - 1.3 (Acrobat 2 - 4), collider #2
+10500        PDF 1.4 - 1.6 (Acrobat 5 - 8)
+10600        PDF 1.7 Level 3 (Acrobat 9)
+10700        PDF 1.7 Level 8 (Acrobat 10 - 11)
+1. Extract
+- python pdf2john.py inventory.pdf | awk -F":" '{ print $2}'
+2. Crack
+- hashcat -a 0 -m 10500 pdf_hash rockyou
