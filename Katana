@@ -1,0 +1,6 @@
+- katana -u https://tesla.com,https://google.com
+- nano urllist.txt
+	
+	https://tesla.com
+	https://google.com
+ 
