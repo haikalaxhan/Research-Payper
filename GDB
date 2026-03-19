@@ -1,0 +1,16 @@
+1. gdb binary file
+- gdb octopus_checker
+- set disassembly-flavor intel
+- disas main
+
+2. READ AND LEARN
+
+3. add breakpoint
+- b *0x55551b3
+
+4. list all breakpoint
+- info break
+
+5. delete a breakpoint
+- del 1
+- run
