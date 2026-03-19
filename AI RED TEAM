@@ -1,7 +1,0 @@
-AI Prompts for Discovery
-a. Beginner Prompt
-- "Analyze this HTTP request and explain whether it may be vulnerable to IDOR: GET /api/profile?id=1023"
-b. Medium Prompt
-- "You are a bug bounty hunter analyzing an API. Identify possible access control weaknesses and suggest test cases to verify IDOR vulnerabilities."
-c. Hard Prompt
-- "Given these API endpoints and request patterns, identify all potential object identifiers and generate an attack strategy for discovering broken access control issues across multiple roles and permission levels."

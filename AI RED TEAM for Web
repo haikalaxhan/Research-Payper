@@ -1,0 +1,79 @@
+AI Prompts for Broken Access Control
+a. Beginner Prompt
+- "Analyze this HTTP request and explain whether it may be vulnerable to IDOR: GET /api/profile?id=1023"
+b. Medium Prompt
+- "You are a bug bounty hunter analyzing an API. Identify possible access control weaknesses and suggest test cases to verify IDOR vulnerabilities."
+c. Hard Prompt
+- "Given these API endpoints and request patterns, identify all potential object identifiers and generate an attack strategy for discovering broken access control issues across multiple roles and permission levels."
+
+AI Prompts for Cryptographic Failures
+a. Beginner Prompt
+- "Decode this JWT token and explain what information it contains and whether the algorithm used is secure."
+b. Medium Prompt
+- "Analyze this JWT token and identify possible cryptographic weaknesses such as weak algorithms, predictable claims, or missing signature verification."
+c. Hard Prompt
+- "Given this authentication system using JWT tokens, identify possible cryptographic vulnerabilities and design a complete attack strategy for forging tokens, including secret key brute-forcing and algorithm confusion attacks."
+
+AI Prompts for Injection
+a. Beginner Prompt
+- "Explain how SQL injection works in login forms and what characters I should test with."
+b. Medium Prompt
+- "Analyze this HTTP request with a search parameter and suggest possible SQL injection payloads for both error-based and blind injection techniques."
+c. Hard Prompt
+- "Given this database query structure and WAF behavior patterns, design a complete exploitation chain for extracting sensitive data using SQL injection while evading detection systems."
+
+AI Prompts for Insecure Design
+a. Beginner Prompt
+- "Explain what insecure design means in web applications and give three examples of design flaws."
+b. Medium Prompt
+- "Analyze this user registration and payment workflow. Identify any design-level security flaws where steps could be skipped or manipulated."
+c. Hard Prompt
+- "Perform a threat modeling exercise on this multi-step e-commerce checkout flow. Identify all trust boundaries, potential bypass vectors, and design-level vulnerabilities that cannot be fixed with input validation alone."
+
+AI Prompts for Security Misconfigurations
+a. Beginner Prompt
+- "What are common security misconfigurations in web applications and what directories should I check for exposed admin panels?"
+b. Medium Prompt
+- "Analyze these HTTP response headers and identify security misconfigurations, missing headers, and information disclosure issues."
+c. Hard Prompt
+- "Given this server technology stack (nginx, PHP, MySQL), generate a comprehensive security misconfiguration audit checklist including Shodan dorks, directory brute-force wordlists, and configuration file locations to test."
+
+AI Prompts for Vulnerable Components
+a. Beginner Prompt
+- "Explain what vulnerable components mean in web security and how attackers exploit outdated libraries."
+b. Medium Prompt
+- "Analyze this package.json file and identify any dependencies with known security vulnerabilities. Suggest secure alternatives."
+c. Hard Prompt
+- "Given this application's full dependency tree and technology stack, identify all components with known CVEs, assess exploitability, and design an attack chain that leverages vulnerable dependencies to achieve remote code execution."
+
+AI Prompts for Authentication Failures
+a. Beginner Prompt
+- "Explain common authentication vulnerabilities in web applications and how brute-force attacks work against login forms."
+b. Medium Prompt
+- "Analyze this password reset workflow and identify potential weaknesses in token generation, expiration, and validation."
+c. Hard Prompt
+- "Given this authentication system with MFA implementation, identify all possible bypass techniques including response manipulation, race conditions, and backup code enumeration. Design a complete attack strategy."
+
+AI Prompts for Software Integrity Failures
+a. Beginner Prompt
+- "Explain what supply chain attacks are in software development and how malicious packages get installed."
+b. Medium Prompt
+- "Analyze this package.json for potential typosquatting risks and identify any dependencies that could be supply chain attack vectors."
+c. Hard Prompt
+- "Design a comprehensive supply chain security audit for this CI/CD pipeline. Identify all points where code integrity could be compromised, including dependency resolution, build steps, and deployment mechanisms."
+
+AI Prompts for Logging & Monitoring Failures
+a. Beginner Prompt
+- "Explain why logging and monitoring are important for security and what events should be logged in a web application."
+b. Medium Prompt
+"Analyze this application's logging configuration and identify gaps where security-critical events are not being recorded."
+c. Hard Prompt
+- "Design a comprehensive logging and monitoring strategy for this application architecture. Identify all security events that must be logged, specify log formats, define alert thresholds, and create detection rules for common attack patterns."
+
+AI Prompts for SSRF
+a. Beginner Prompt
+- "Explain how SSRF vulnerabilities occur in web applications and why they are dangerous in cloud environments."
+b. Medium Prompt
+- "Analyze this endpoint that accepts a URL parameter for fetching content. Identify possible SSRF attack vectors and suggest payloads to test for internal network access."
+c. Hard Prompt
+- "Design a comprehensive SSRF attack chain that starts with a URL fetch feature, accesses internal services, retrieves cloud metadata credentials, and pivots to gain administrative access to the cloud infrastructure. Include bypass techniques for common SSRF filters."
