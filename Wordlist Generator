@@ -1,0 +1,8 @@
+Crunch
+1. Create wordlist
+- crunch <minimum length> <maximum length> <charset> -t <pattern> -o <output file>
+- crunch 4 8 -o wordlist
+
+2. Create Wordlist using Pattern
+a) Pattern after % will be randomized with min and max of 17 characters
+- crunch 17 17 -t ILFREIGHT201%@@@@ -o wordlist
