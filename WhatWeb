@@ -1,0 +1,9 @@
+Verbose scanning
+- whatweb -v target.com slashdot.org
+
+Aggressive scanning
+- whatweb -v -a 3 www.target.com
+
+Specific plugins
+- whatweb -v techyrick.com adsense.com
+- whatweb -v target.com
